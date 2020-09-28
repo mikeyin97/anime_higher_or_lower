@@ -27,6 +27,7 @@ class Header extends Component {
       data: [],
     };
     this.handleData = this.handleData.bind(this);
+    this.handleData2 = this.handleData2.bind(this);
     this.handleError = this.handleError.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
     this.shuffleArray = this.shuffleArray.bind(this);
@@ -173,13 +174,18 @@ class Header extends Component {
   handleData2(data) {
     var animeData = data.data.Page.media;
     this.shuffleArray(animeData);
-    this.setState({prevAnime: this.state.currAnime}
+    this.setState({prevAnime: {
+      index: -1, 
+      name: this.state.prevAnime.name,
+      score:  this.state.prevAnime.score,
+      img:  this.state.prevAnime.img
+      }}
     );
     this.setState({currAnime: {
-      index: 0,
-      name: animeData[0].title.romaji,
-      score: animeData[0].averageScore,
-      img: animeData[0].coverImage.extraLarge
+      index: 0, 
+      name: this.state.currAnime.name,
+      score:  this.state.currAnime.score,
+      img:  this.state.currAnime.img
       }}
     );
     this.setState({data: animeData})
@@ -188,8 +194,7 @@ class Header extends Component {
   }
 
   handleError(error) {
-      alert('Error, check console');
-      console.error(error);
+    console.error(error);
   }
 
   shuffleArray(array) {
@@ -222,10 +227,10 @@ class Header extends Component {
       var prevIndex = this.state.prevAnime.index + 1;
       
       this.setState({prevAnime: {
-        index: prevIndex,
-        name: this.state.data[prevIndex].title.romaji,
-        score: this.state.data[prevIndex].averageScore,
-        img: this.state.data[prevIndex].coverImage.extraLarge
+        index: currIndex-1,
+        name: this.state.currAnime.name,
+        score: this.state.currAnime.score,
+        img: this.state.currAnime.img
         }}
       );
       
@@ -236,7 +241,7 @@ class Header extends Component {
         img: this.state.data[currIndex].coverImage.extraLarge
         }}
       );
-      if (currIndex === this.state.data.length - 1){
+      if (currIndex === this.state.data.length - 2){
         this.remount()
       }
     }
@@ -260,10 +265,10 @@ class Header extends Component {
       var prevIndex = this.state.prevAnime.index + 1;
       
       this.setState({prevAnime: {
-        index: prevIndex,
-        name: this.state.data[prevIndex].title.romaji,
-        score: this.state.data[prevIndex].averageScore,
-        img: this.state.data[prevIndex].coverImage.extraLarge
+        index: currIndex-1,
+        name: this.state.currAnime.name,
+        score: this.state.currAnime.score,
+        img: this.state.currAnime.img
         }}
       );
       
@@ -274,7 +279,7 @@ class Header extends Component {
         img: this.state.data[currIndex].coverImage.extraLarge
         }}
       );
-      if (currIndex === this.state.data.length - 1){
+      if (currIndex === this.state.data.length - 2){
         this.remount()
       }
     }
@@ -298,10 +303,10 @@ class Header extends Component {
       var prevIndex = this.state.prevAnime.index + 1;
       
       this.setState({prevAnime: {
-        index: prevIndex,
-        name: this.state.data[prevIndex].title.romaji,
-        score: this.state.data[prevIndex].averageScore,
-        img: this.state.data[prevIndex].coverImage.extraLarge
+        index: currIndex-1,
+        name: this.state.currAnime.name,
+        score: this.state.currAnime.score,
+        img: this.state.currAnime.img
         }}
       );
       
@@ -312,7 +317,7 @@ class Header extends Component {
         img: this.state.data[currIndex].coverImage.extraLarge
         }}
       );
-      if (currIndex === this.state.data.length - 1){
+      if (currIndex === this.state.data.length - 2){
         this.remount()
       }
     }
