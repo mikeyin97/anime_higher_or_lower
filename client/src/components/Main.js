@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../public/stylesheets/SearchTable.css';
 import { FormCheck } from 'react-bootstrap';
 

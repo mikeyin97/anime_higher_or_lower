@@ -1,5 +1,5 @@
 {
-  "name": "bobadex",
+  "name": "anime_higher_lower",
   "version": "1.0.0",
   "description": "Share and view reviews for your favourite drinks.",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikeyin97/BobaDex.git"
+    "url": "git+https://github.com/mikeyin97/anime_higher_or_lower.git"
   },
   "author": "Mike Yin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mikeyin97/BobaDex/issues"
+    "url": "https://github.com/mikeyin97/anime_higher_or_lower/issues"
   },
-  "homepage": "https://github.com/mikeyin97/BobaDex#readme",
+  "homepage": "https://github.com/mikeyin97/anime_higher_or_lower#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
