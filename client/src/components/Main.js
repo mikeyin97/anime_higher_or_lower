@@ -8,6 +8,7 @@ class Header extends Component {
     super(props);
     this.state = {
       score: 0,
+      highscore: 0,
       animeScore: 0,
       prevAnime: {
         index: 0,
@@ -169,7 +170,7 @@ class Header extends Component {
     
   }
 
-  handleData(data) {
+  handleData2(data) {
     var animeData = data.data.Page.media;
     this.shuffleArray(animeData);
     this.setState({prevAnime: this.state.currAnime}
@@ -204,10 +205,18 @@ class Header extends Component {
     if (this.state.currAnime.score > this.state.prevAnime.score){
       if (e.target.value === "+1"){
         this.setState({score: this.state.score + 1, correct:true});
+        var highscore = Math.max(this.state.score + 1, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       else {
         this.setState({correct:false});
         this.setState({score: 0});
+        var highscore = Math.max(this.state.score, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       var currIndex = this.state.currAnime.index + 1;
       var prevIndex = this.state.prevAnime.index + 1;
@@ -234,10 +243,18 @@ class Header extends Component {
     else if (this.state.currAnime.score === this.state.prevAnime.score){
       if (e.target.value === "0"){
         this.setState({score: this.state.score + 1, correct:true});
+        var highscore = Math.max(this.state.score + 1, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       else {
         this.setState({correct:false});
         this.setState({score: 0});
+        var highscore = Math.max(this.state.score, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       var currIndex = this.state.currAnime.index + 1;
       var prevIndex = this.state.prevAnime.index + 1;
@@ -264,10 +281,18 @@ class Header extends Component {
     else if (this.state.currAnime.score < this.state.prevAnime.score){
       if (e.target.value === "-1"){
         this.setState({score: this.state.score + 1, correct:true});
+        var highscore = Math.max(this.state.score + 1, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       else {
         this.setState({correct:false});
         this.setState({score: 0});
+        var highscore = Math.max(this.state.score, this.state.highscore);
+        this.setState({
+          highscore: highscore,
+        });
       }
       var currIndex = this.state.currAnime.index + 1;
       var prevIndex = this.state.prevAnime.index + 1;
@@ -305,14 +330,14 @@ class Header extends Component {
       "backgroundImage": "url(" +  this.state.prevAnime.img + ")",
       "backgroundSize": "cover",
       "backgroundRepeat": "no-repeat",
-      "background-blend-mode": "multiply",
+      "backgroundBlendMode": "multiply",
 
     };
     var style2 = {
       backgroundImage: "url(" + this.state.currAnime.img + ")",
       "backgroundSize": "cover",
       "backgroundRepeat": "no-repeat",
-      "background-blend-mode": "multiply",
+      "backgroundBlendMode": "multiply",
     };
 
     if (this.state.correct === false){
@@ -325,6 +350,7 @@ class Header extends Component {
     return <div id="page">
       <div id="left" style={style1}>
       <div id="score"><h1 style={style3}>Current Score: {this.state.score}</h1></div>
+      <div id="highscore"><h1 style={style3}>High Score: {this.state.highscore}</h1></div>
 
       <div className="centre" >
         <h1>{this.state.prevAnime.name}</h1>

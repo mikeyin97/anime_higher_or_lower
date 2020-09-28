@@ -48,6 +48,16 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(-50%, -50%);
 }
 
+#highscore{
+  margin: 0;
+  position: absolute;
+  top: 90%;
+  left: 30%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
 
 #page2{
   height: 100vh;
