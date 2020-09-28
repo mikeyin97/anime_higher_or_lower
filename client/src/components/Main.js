@@ -136,7 +136,7 @@ class Header extends Component {
     };
 
     fetch(url, options).then(this.handleResponse)
-                   .then(this.handleData)
+                   .then(this.handleData2)
                    .catch(this.handleError);
 
   }
@@ -162,6 +162,23 @@ class Header extends Component {
       name: animeData[1].title.romaji,
       score: animeData[1].averageScore,
       img: animeData[1].coverImage.extraLarge
+      }}
+    );
+    this.setState({data: animeData})
+    this.setState({loading: false});
+    
+  }
+
+  handleData(data) {
+    var animeData = data.data.Page.media;
+    this.shuffleArray(animeData);
+    this.setState({prevAnime: currAnime}
+    );
+    this.setState({currAnime: {
+      index: 0,
+      name: animeData[0].title.romaji,
+      score: animeData[0].averageScore,
+      img: animeData[0].coverImage.extraLarge
       }}
     );
     this.setState({data: animeData})
