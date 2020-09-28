@@ -43,19 +43,85 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   position: absolute;
   top: 95%;
-  left: 30%;
+  left: 40%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 60%;
 }
 
 #highscore{
   margin: 0;
   position: absolute;
   top: 90%;
+  left: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 60%;
+}
+
+h4{
+  margin: 0;
+  position: absolute;
+  top: 90%;
   left: 30%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 40%;
 }
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#higher {
+  background-color: #4CAF50; 
+  color: black; 
+  border: 2px solid white;
+  margin: 0;
+  position: absolute;
+  top: 68%;
+  left: 35%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 20%;
+}
+
+#higher:hover {
+  background-color: white;
+  color: #4CAF50;
+  
+}
+
+#lower {
+  background-color: #f44336; 
+  color: black; 
+  border: 2px solid white;
+  margin: 0;
+  position: absolute;
+  top: 68%;
+  left: 60%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 20%;
+}
+
+#lower:hover {
+  background-color: white;
+  color: #f44336;
+}
+
+
 
 
 

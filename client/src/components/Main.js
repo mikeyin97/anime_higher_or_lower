@@ -246,7 +246,7 @@ class Header extends Component {
       }
     }
     else if (this.state.currAnime.score === this.state.prevAnime.score){
-      if (e.target.value === "0"){
+      if (e.target.value === "+1" || e.target.value === "-1"){
         this.setState({score: this.state.score + 1, correct:true});
         var highscore = Math.max(this.state.score + 1, this.state.highscore);
         this.setState({
@@ -371,12 +371,14 @@ class Header extends Component {
       <div className="centre">
         <h1>{this.state.currAnime.name}</h1>
         <h2> has a rating that is </h2>
-        <button value="+1" onClick={this.check}>higher</button>
-        <button value="0" onClick={this.check}>equal</button>
-        <button value="-1" onClick={this.check}>lower</button>
 
-        <h2></h2>
+
+        
       </div>
+      <button id="higher" value="+1" onClick={this.check}>higher</button>
+      <button id="lower" value="-1" onClick={this.check}>lower</button>
+
+      <h4> <br></br> <br></br> <br></br>Equal rating is a free point :) </h4>
         
       </div>
     </div>
