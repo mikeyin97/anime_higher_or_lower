@@ -172,7 +172,7 @@ class Header extends Component {
   handleData(data) {
     var animeData = data.data.Page.media;
     this.shuffleArray(animeData);
-    this.setState({prevAnime: currAnime}
+    this.setState({prevAnime: this.state.currAnime}
     );
     this.setState({currAnime: {
       index: 0,
