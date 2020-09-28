@@ -1,0 +1,43 @@
+{
+  "name": "bobadex",
+  "version": "1.0.0",
+  "description": "Share and view reviews for your favourite drinks.",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build", 
+    "start": "node index.js",
+    "start-watch": "nodemon index.js",
+    "dev": "concurrently \"yarn run start-watch\" \"cd client && yarn start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyin97/BobaDex.git"
+  },
+  "author": "Mike Yin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyin97/BobaDex/issues"
+  },
+  "homepage": "https://github.com/mikeyin97/BobaDex#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10",
+    "namor": "^2.0.2",
+    "react-bootstrap": "^1.0.1",
+    "react-modal": "^3.11.2",
+    "react-table": "^7.0.4",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.3"
+  },
+  "engines": {
+    "node": "10.16.3"
+}
+}
