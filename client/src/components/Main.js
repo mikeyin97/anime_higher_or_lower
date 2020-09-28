@@ -186,92 +186,91 @@ class Header extends Component {
   check(e) {
     if (this.state.currAnime.score > this.state.prevAnime.score){
       if (e.target.value === "+1"){
-        this.setState({score: this.state.score + 1});
-        var currIndex = this.state.currAnime.index + 1;
-        var prevIndex = this.state.prevAnime.index + 1;
-        
-        this.setState({prevAnime: {
-          index: prevIndex,
-          name: this.state.data[prevIndex].title.romaji,
-          score: this.state.data[prevIndex].averageScore,
-          img: this.state.data[prevIndex].coverImage.extraLarge
-          }}
-        );
-        
-        this.setState({currAnime: {
-          index: currIndex,
-          name: this.state.data[currIndex].title.romaji,
-          score: this.state.data[currIndex].averageScore,
-          img: this.state.data[currIndex].coverImage.extraLarge
-          }}
-        );
-        if (currIndex === this.state.data.length - 1){
-          this.remount()
-        }
+        this.setState({score: this.state.score + 1, correct:true});
       }
-
       else {
+        this.setState({correct:false});
         this.setState({score: 0});
-        this.remount();
+      }
+      var currIndex = this.state.currAnime.index + 1;
+      var prevIndex = this.state.prevAnime.index + 1;
+      
+      this.setState({prevAnime: {
+        index: prevIndex,
+        name: this.state.data[prevIndex].title.romaji,
+        score: this.state.data[prevIndex].averageScore,
+        img: this.state.data[prevIndex].coverImage.extraLarge
+        }}
+      );
+      
+      this.setState({currAnime: {
+        index: currIndex,
+        name: this.state.data[currIndex].title.romaji,
+        score: this.state.data[currIndex].averageScore,
+        img: this.state.data[currIndex].coverImage.extraLarge
+        }}
+      );
+      if (currIndex === this.state.data.length - 1){
+        this.remount()
       }
     }
     else if (this.state.currAnime.score === this.state.prevAnime.score){
       if (e.target.value === "0"){
-        this.setState({score: this.state.score + 1});
-        var currIndex = this.state.currAnime.index + 1;
-        var prevIndex = this.state.prevAnime.index + 1;
-        
-        this.setState({prevAnime: {
-          index: prevIndex,
-          name: this.state.data[prevIndex].title.romaji,
-          score: this.state.data[prevIndex].averageScore,
-          img: this.state.data[prevIndex].coverImage.extraLarge
-          }}
-        );
-        
-        this.setState({currAnime: {
-          index: currIndex,
-          name: this.state.data[currIndex].title.romaji,
-          score: this.state.data[currIndex].averageScore,
-          img: this.state.data[currIndex].coverImage.extraLarge
-          }}
-        );
-        if (currIndex === this.state.data.length - 1){
-          this.remount()
-        }
+        this.setState({score: this.state.score + 1, correct:true});
       }
       else {
+        this.setState({correct:false});
         this.setState({score: 0});
+      }
+      var currIndex = this.state.currAnime.index + 1;
+      var prevIndex = this.state.prevAnime.index + 1;
+      
+      this.setState({prevAnime: {
+        index: prevIndex,
+        name: this.state.data[prevIndex].title.romaji,
+        score: this.state.data[prevIndex].averageScore,
+        img: this.state.data[prevIndex].coverImage.extraLarge
+        }}
+      );
+      
+      this.setState({currAnime: {
+        index: currIndex,
+        name: this.state.data[currIndex].title.romaji,
+        score: this.state.data[currIndex].averageScore,
+        img: this.state.data[currIndex].coverImage.extraLarge
+        }}
+      );
+      if (currIndex === this.state.data.length - 1){
         this.remount()
       }
     }
     else if (this.state.currAnime.score < this.state.prevAnime.score){
       if (e.target.value === "-1"){
-        this.setState({score: this.state.score + 1});
-        var currIndex = this.state.currAnime.index + 1;
-        var prevIndex = this.state.prevAnime.index + 1;
-        
-        this.setState({prevAnime: {
-          index: prevIndex,
-          name: this.state.data[prevIndex].title.romaji,
-          score: this.state.data[prevIndex].averageScore,
-          img: this.state.data[prevIndex].coverImage.extraLarge
-          }}
-        );
-        
-        this.setState({currAnime: {
-          index: currIndex,
-          name: this.state.data[currIndex].title.romaji,
-          score: this.state.data[currIndex].averageScore,
-          img: this.state.data[currIndex].coverImage.extraLarge
-          }}
-        );
-        if (currIndex === this.state.data.length - 1){
-          this.remount()
-        }
+        this.setState({score: this.state.score + 1, correct:true});
       }
       else {
+        this.setState({correct:false});
         this.setState({score: 0});
+      }
+      var currIndex = this.state.currAnime.index + 1;
+      var prevIndex = this.state.prevAnime.index + 1;
+      
+      this.setState({prevAnime: {
+        index: prevIndex,
+        name: this.state.data[prevIndex].title.romaji,
+        score: this.state.data[prevIndex].averageScore,
+        img: this.state.data[prevIndex].coverImage.extraLarge
+        }}
+      );
+      
+      this.setState({currAnime: {
+        index: currIndex,
+        name: this.state.data[currIndex].title.romaji,
+        score: this.state.data[currIndex].averageScore,
+        img: this.state.data[currIndex].coverImage.extraLarge
+        }}
+      );
+      if (currIndex === this.state.data.length - 1){
         this.remount()
       }
     }
@@ -299,9 +298,16 @@ class Header extends Component {
       "background-blend-mode": "multiply",
     };
 
+    if (this.state.correct === false){
+      var style3 = {
+        "color": "red",
+      };
+
+    }
+
     return <div id="page">
       <div id="left" style={style1}>
-      <div id="score"><h1>Current Score: {this.state.score}</h1></div>
+      <div id="score"><h1 style={style3}>Current Score: {this.state.score}</h1></div>
 
       <div className="centre" >
         <h1>{this.state.prevAnime.name}</h1>
